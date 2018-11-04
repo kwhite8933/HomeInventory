@@ -1,18 +1,18 @@
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ShoppingListItem from './components/shoppingListItem';
+import ShoppingList from './components/shoppingList';
 import Chart from './components/chartExample';
 import ChartWaterUsage from './components/waterUsage';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css'
 
 function App(){
-    const items = fruits.map(fruit => {
-        return (
-            <ShoppingListItem key={fruit} name={fruit}/>
-        );
-    })
+    // const items = fruits.map(fruit => {
+    //     return (
+    //         <ShoppingList fruits={fruits}/>
+    //     );
+    // })
 
     return(
         <div className="row">
@@ -21,15 +21,15 @@ function App(){
                     <ChartWaterUsage/>
                 </div>
                 <div className="bodyComponent">
-                    {items}
+                    <ShoppingList key={"first"}/>
                 </div>
             </div>
             <div className="col-md-6">
                 <div className="bodyComponent">
-                    {items}
+                    <ShoppingList key={"second"}/>
                 </div>
                 <div className="bodyComponent">
-                    {items}
+                    <ShoppingList key={"third"}/>
                 </div>
             </div>
             <div className="col-md-3">
@@ -41,8 +41,6 @@ function App(){
         
     );
 }
-
-const fruits = ["apples", "oranges", "bananas"];
 
 ReactDOM.render(
     <App/>,
