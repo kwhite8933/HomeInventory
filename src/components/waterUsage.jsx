@@ -1,5 +1,6 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class ChartWaterUsage extends React.Component {
     constructor(props) {
@@ -32,7 +33,7 @@ class ChartWaterUsage extends React.Component {
         return ( 
             <div>
                 <Bar data={this.state.data}/>
-                {/* <button onClick={this.test}>Click Me</button> */}
+                <button onClick={this.test} className="glyphicon glyphicon-plus"></button>
             </div>
         );
     }

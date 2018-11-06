@@ -1,4 +1,13 @@
 import React from 'react';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faStroopwafel, faCoffee, faAirFreshener, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+library.add(faStroopwafel);
+library.add(faCoffee);
+library.add(faPlus);
+library.add(faMinus);
+library.add(faAirFreshener);
 
 class ShoppingListItem extends React.Component {
     constructor(props){
@@ -33,8 +42,10 @@ class ShoppingListItem extends React.Component {
         return ( 
             <div>
                 <span>{this.state.count}</span>
-                <button className="btn btn-success" onClick={this.handleIncrement}>+</button>
-                <button className="btn btn-danger" onClick={this.handleDecrement}>-</button>
+                <FontAwesomeIcon icon="plus" onClick={this.handleIncrement}/>
+                <FontAwesomeIcon icon="minus" onClick={this.handleDecrement}/>
+                {/* <button className="btn btn-success" onClick={this.handleIncrement}>+</button> */}
+                {/* <button className="btn btn-danger" onClick={this.handleDecrement}>-</button> */}
                 <label>{this.state.name}</label>
             </div>
         );

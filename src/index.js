@@ -15,15 +15,15 @@ function App(){
                     <ChartWaterUsage/>
                 </div>
                 <div className="bodyComponent">
-                    <ShoppingList key={"first"}/>
+                    <ShoppingList key={"first"} test={"first"}/>
                 </div>
             </div>
             <div className="col-md-6">
                 <div className="bodyComponent">
-                    <ShoppingList key={"second"}/>
+                    <ShoppingList key={"second"} test={"second"}/>
                 </div>
                 <div className="bodyComponent">
-                    <ShoppingList key={"third"}/>
+                    <ShoppingList key={"third"} test={"third"}/>
                 </div>
             </div>
             <div className="col-md-3">

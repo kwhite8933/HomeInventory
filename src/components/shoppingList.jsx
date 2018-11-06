@@ -1,5 +1,14 @@
 import React from 'react';
-import ShoppingListItem from './shoppingListItem'
+import ShoppingListItem from './shoppingListItem';
+import 'bootstrap/dist/css/bootstrap.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faStroopwafel, faCoffee, faAirFreshener, faPlus } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faStroopwafel);
+library.add(faCoffee);
+library.add(faPlus);
+library.add(faAirFreshener);
 
 class ShoppingList extends React.Component {
     constructor(props) {
@@ -9,18 +18,44 @@ class ShoppingList extends React.Component {
                 "apples",
                 "oranges",
                 "bananas"
-            ]
+            ],
+            inputClicked: false
         }
     }
 
-    handleClick = () => {
-        let itemsCopy = this.state.fruits;
-        itemsCopy.push("watermelon");
-        console.log(itemsCopy);
+    addItem = () => {
+        const id = document.getElementById("addItem".concat(this.props.test));
+        if(this.state.fruits.findIndex(() => {return id.value}) === -1){
+            let itemsCopy = this.state.fruits;
+            itemsCopy.push(id.value);
+            console.log(itemsCopy);
 
+            this.setState({
+                fruits: itemsCopy,
+                inputClicked: false
+            });
+            id.value="";
+        } else {
+            console.log('input already exists')
+            id.value = "";
+            this.setState({
+                inputClicked: false
+            })
+        }
+        
+
+    }
+
+    showForm = () => {
         this.setState({
-            fruits: itemsCopy
-        });
+            inputClicked: !this.state.inputClicked
+        })
+    }
+
+    handleEnter = (e) => {
+        if(e.key === 'Enter'){
+            this.addItem();
+        }
     }
 
     render() { 
@@ -36,8 +71,16 @@ class ShoppingList extends React.Component {
                     }
                 </div>
                 <div>
-                    <button onClick={this.handleClick}>Add</button>
+                    {/* <FontAwesomeIcon className="btnAddItem" onClick={this.handleClick} icon="plus"/> */}
+                    
+                    {
+                        this.state.inputClicked?
+                            <input id={"addItem".concat(this.props.test)} onKeyPress={this.handleEnter}></input>
+                        :
+                        <div></div>
+                    }
                 </div>
+                <FontAwesomeIcon className="btnAddItem" onClick={this.showForm.bind()} icon="plus"/>
             </div>
         );
     }
