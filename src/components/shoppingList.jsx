@@ -21,7 +21,6 @@ class ShoppingList extends React.Component {
         this.setState({
             fruits: itemsCopy
         });
-
     }
 
     render() { 

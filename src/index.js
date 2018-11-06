@@ -8,12 +8,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './index.css'
 
 function App(){
-    // const items = fruits.map(fruit => {
-    //     return (
-    //         <ShoppingList fruits={fruits}/>
-    //     );
-    // })
-
     return(
         <div className="row">
             <div className="col-md-3">
@@ -38,7 +32,6 @@ function App(){
                 </div>
             </div>
         </div>
-        
     );
 }
 
