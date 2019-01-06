@@ -44,8 +44,6 @@ class ShoppingListItem extends React.Component {
                 <span>{this.state.count}</span>
                 <FontAwesomeIcon icon="plus" onClick={this.handleIncrement}/>
                 <FontAwesomeIcon icon="minus" onClick={this.handleDecrement}/>
-                {/* <button className="btn btn-success" onClick={this.handleIncrement}>+</button> */}
-                {/* <button className="btn btn-danger" onClick={this.handleDecrement}>-</button> */}
                 <label>{this.state.name}</label>
             </div>
         );

@@ -3,12 +3,13 @@ import ShoppingListItem from './shoppingListItem';
 import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faStroopwafel, faCoffee, faAirFreshener, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faStroopwafel, faCoffee, faAirFreshener, faPlus, faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faStroopwafel);
 library.add(faCoffee);
 library.add(faPlus);
 library.add(faAirFreshener);
+library.add(faSpinner);
 
 class ShoppingList extends React.Component {
     constructor(props) {
@@ -23,27 +24,35 @@ class ShoppingList extends React.Component {
         }
     }
 
+    // add item 
     addItem = () => {
         const id = document.getElementById("addItem".concat(this.props.test));
-        if(this.state.fruits.findIndex(() => {return id.value}) === -1){
-            let itemsCopy = this.state.fruits;
-            itemsCopy.push(id.value);
-            console.log(itemsCopy);
-
-            this.setState({
-                fruits: itemsCopy,
-                inputClicked: false
-            });
-            id.value="";
-        } else {
-            console.log('input already exists')
-            id.value = "";
-            this.setState({
-                inputClicked: false
-            })
-        }
         
+        if(id.value === ""){
+            this.hideForm();
+        } else {
+            if(this.state.fruits.findIndex((item) => {return id.value === item}) === -1){
+                let itemsCopy = this.state.fruits;
+                itemsCopy.push(id.value);
+    
+                this.setState({
+                    fruits: itemsCopy,
+                    inputClicked: false
+                });
+                id.value="";
+            } else {
+                console.log('input already exists')
+                this.hideForm();
+            }
+        }
+    }
 
+    hideForm = () => {
+        document.getElementById("addItem".concat(this.props.test)).value = "";
+
+        this.setState({
+            inputClicked: false
+        })
     }
 
     showForm = () => {
@@ -71,8 +80,6 @@ class ShoppingList extends React.Component {
                     }
                 </div>
                 <div>
-                    {/* <FontAwesomeIcon className="btnAddItem" onClick={this.handleClick} icon="plus"/> */}
-                    
                     {
                         this.state.inputClicked?
                             <input id={"addItem".concat(this.props.test)} onKeyPress={this.handleEnter}></input>
@@ -80,7 +87,7 @@ class ShoppingList extends React.Component {
                         <div></div>
                     }
                 </div>
-                <FontAwesomeIcon className="btnAddItem" onClick={this.showForm.bind()} icon="plus"/>
+                <FontAwesomeIcon className="btnAddItem" onClick={this.showForm} icon="plus"/>
             </div>
         );
     }
