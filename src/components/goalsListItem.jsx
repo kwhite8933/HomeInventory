@@ -12,8 +12,8 @@ class GoalsListItem extends React.Component{
     render(){
         return (
             <div>
-                <input type="checkbox" name="{this.props.name}"></input>
-                <label>{this.props.name}</label>
+                <input className="goalsListItemInput" type="checkbox" name="{this.props.name}"></input>
+                <label className="goalsListItemLabel">{this.props.name}</label>
             </div>
         );
     }
