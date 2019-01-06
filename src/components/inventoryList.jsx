@@ -1,5 +1,5 @@
 import React from 'react';
-import ShoppingListItem from './shoppingListItem';
+import InventoryListItem from './inventoryListItem';
 import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -11,7 +11,7 @@ library.add(faPlus);
 library.add(faAirFreshener);
 library.add(faSpinner);
 
-class ShoppingList extends React.Component {
+class InventoryList extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
@@ -74,7 +74,7 @@ class ShoppingList extends React.Component {
                     {
                         this.state.fruits.map((fruit) => {
                             return(
-                                <ShoppingListItem key={fruit} name={fruit}/>
+                                <InventoryListItem key={fruit} name={fruit}/>
                             );
                         })
                     }
@@ -93,4 +93,4 @@ class ShoppingList extends React.Component {
     }
 }
  
-export default ShoppingList;
+export default InventoryList;

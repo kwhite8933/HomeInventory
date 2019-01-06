@@ -1,7 +1,7 @@
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ShoppingList from './components/shoppingList';
+import InventoryList from './components/inventoryList';
 import Chart from './components/chartExample';
 import ChartWaterUsage from './components/waterUsage';
 import GoalsList from './components/goalsList';
@@ -15,7 +15,7 @@ function App(){
             <div id="header">
                 <div id="header-content">
                     <div id="header-left">
-                        <span>Shopping List</span>
+                        <span>Home Inventory</span>
                     </div>
                     <div id="header-right">
                         <span className="header-item">Kyle</span>
@@ -33,7 +33,7 @@ function App(){
                         <div className="bodyComponent">
                             <span className="bodyComponentTitle">Title</span>
                             <div className="bodyComponentBody">
-                                <ShoppingList className="bodyComponentBody" key={"first"} test={"first"}/>
+                                <InventoryList className="bodyComponentBody" key={"first"} test={"first"}/>
                             </div>
                         </div>
                     </div>
@@ -41,13 +41,13 @@ function App(){
                         <div className="bodyComponent">
                             <span className="bodyComponentTitle">Title</span>
                             <div className="bodyComponentBody">
-                                <ShoppingList key={"second"} test={"second"}/>
+                                <InventoryList key={"second"} test={"second"}/>
                             </div>
                         </div>
                         <div className="bodyComponent">
                             <span className="bodyComponentTitle">Title</span>
                             <div className="bodyComponentBody">
-                                <ShoppingList key={"third"} test={"third"}/>
+                                <InventoryList key={"third"} test={"third"}/>
                             </div>
                         </div>
                         {/* <div className="bodyComponent">

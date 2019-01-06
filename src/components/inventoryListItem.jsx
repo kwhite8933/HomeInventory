@@ -9,7 +9,7 @@ library.add(faPlus);
 library.add(faMinus);
 library.add(faAirFreshener);
 
-class ShoppingListItem extends React.Component {
+class InventoryListItem extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -50,4 +50,4 @@ class ShoppingListItem extends React.Component {
     }
 }
  
-export default ShoppingListItem;
+export default InventoryListItem;
