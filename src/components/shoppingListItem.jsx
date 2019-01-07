@@ -1,6 +1,6 @@
 import React from 'react';
 
-class GoalsListItem extends React.Component{
+class ShoppingListItem extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -18,7 +18,7 @@ class GoalsListItem extends React.Component{
     render(){
         return (
             <div>
-                <input className="goalsListItemInput"
+                <input className="shoppingListItemInput"
                     type="checkbox"
                     name="{this.props.name}"
                     checked={this.state.isComplete}
@@ -26,9 +26,9 @@ class GoalsListItem extends React.Component{
                 </input>
                 {
                     this.state.isComplete ?
-                        <label className="goalsListItemLabel" style={{textDecoration: 'line-through'}}>{this.props.name}</label>
+                        <label className="shoppingListItemLabel" style={{textDecoration: 'line-through'}}>{this.props.name}</label>
                     :
-                        <label className="goalsListItemLabel" style={{textDecoration: 'none'}}>{this.props.name}</label>
+                        <label className="shoppingListItemLabel" style={{textDecoration: 'none'}}>{this.props.name}</label>
                 }
             </div>
         );
@@ -36,4 +36,4 @@ class GoalsListItem extends React.Component{
 
 }
 
-export default GoalsListItem;
+export default ShoppingListItem;

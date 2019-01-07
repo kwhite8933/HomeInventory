@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import InventoryList from './components/inventoryList';
 import Chart from './components/chartExample';
 import ChartWaterUsage from './components/waterUsage';
-import GoalsList from './components/goalsList';
+import ShoppingList from './components/shoppingList';
 // import ModalTest from './components/ModalTest';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css'
@@ -59,8 +59,8 @@ function App(){
                             <h1><Chart/></h1>
                         </div>
                         <div className="bodyComponent">
-                            <span className="bodyComponentTitle">Goals</span>
-                            <GoalsList/>
+                            <span className="bodyComponentTitle">Shopping List</span>
+                            <ShoppingList/>
                         </div>
                     </div>
                 </div>

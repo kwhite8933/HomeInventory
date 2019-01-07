@@ -1,15 +1,15 @@
 import React from 'react';
-import GoalsListItem from './goalsListItem'
+import ShoppingListItem from './shoppingListItem'
 
-class GoalsList extends React.Component {
+class ShoppingList extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            goals: [
-                "Brush Teeth",
-                "Test",
-                "Drink Water",
-                "Eat Healthy"
+            list: [
+                "Crystal Light",
+                "Turkey",
+                "American Cheese",
+                "Panini Bread"
             ]
         }
     }
@@ -19,9 +19,9 @@ class GoalsList extends React.Component {
             <div>
                 <form>
                     {
-                        this.state.goals.map((goal) => {
+                        this.state.list.map((goal) => {
                             return (
-                                <GoalsListItem key={goal} name={goal}/>
+                                <ShoppingListItem key={goal} name={goal}/>
                             );
                         })
                     }
@@ -31,4 +31,4 @@ class GoalsList extends React.Component {
     }
 }
 
-export default GoalsList;
+export default ShoppingList;
