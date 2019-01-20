@@ -1,39 +1,35 @@
 import React from 'react';
 
-class ShoppingListItem extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            name: props.name,
-            isComplete: false
+    function ShoppingListItem(props){
+
+        let handleChange = () => {
+
+            let _name = props.name;
+            let _status = !props.status;
+            let _hidden = !props.hide;
+    
+            props.onItemChecked(_name, _status, _hidden);
         }
-    }
 
-    handleChange = () => {
-        this.setState({
-            isComplete: !this.state.isComplete
-        })
-    }
+        let hideItem = ""
+        hideItem += props.hide ? "shoppingListItemHidden" : "shoppingListItemShow";
 
-    render(){
         return (
-            <div>
+            <div className={hideItem}>
                 <input className="shoppingListItemInput"
                     type="checkbox"
-                    name="{this.props.name}"
-                    checked={this.state.isComplete}
-                    onChange={this.handleChange}>
+                    name="{props.name}"
+                    value={props.status}
+                    onChange={handleChange}>
                 </input>
                 {
-                    this.state.isComplete ?
-                        <label className="shoppingListItemLabel" style={{textDecoration: 'line-through'}}>{this.props.name}</label>
+                    props.status ?
+                        <label className="shoppingListItemLabel" style={{textDecoration: 'line-through'}}>{props.name}</label>
                     :
-                        <label className="shoppingListItemLabel" style={{textDecoration: 'none'}}>{this.props.name}</label>
+                        <label className="shoppingListItemLabel" style={{textDecoration: 'none'}}>{props.name}</label>
                 }
             </div>
         );
     }
-
-}
 
 export default ShoppingListItem;

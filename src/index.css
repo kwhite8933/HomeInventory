@@ -84,3 +84,20 @@ body{
 .shoppingListItemLabel {
     padding-left: 5px;
 }
+
+#inCartItems {
+    font-size: 50%;
+    text-align: center;
+}
+
+#inCartItems:hover {
+    text-decoration: underline;
+}
+
+.shoppingListItemHidden {
+    display: none;
+}
+
+.shoppingListItemShow {
+    display: block;
+}
