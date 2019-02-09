@@ -25,6 +25,12 @@ class Chart extends React.Component {
         this.setState({
             data: dataCopy
         })
+
+        var Modal = React.Modal;
+        return(
+            <Modal/>
+        );
+
     }
 
     render() { 
