@@ -1,55 +1,35 @@
 import React from 'react';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faStroopwafel, faCoffee, faAirFreshener, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-library.add(faStroopwafel);
-library.add(faCoffee);
-library.add(faPlus);
-library.add(faMinus);
-library.add(faAirFreshener);
+    function ShoppingListItem(props){
 
-class ShoppingListItem extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            name: props.name,
-            count: 0
-        }
-    }
+        let handleChange = () => {
 
-    handleIncrement = () => {
-        let itemsCopy = this.state;
-        itemsCopy.count = itemsCopy.count + 1
-
-        this.setState({
-            items: itemsCopy
-        })
-    }
-
-    handleDecrement = () => {
-        let itemsCopy = this.state;
-        if(itemsCopy.count - 1 >= 0){
-            itemsCopy.count = itemsCopy.count - 1
+            let _name = props.name;
+            let _status = !props.status;
+            let _hidden = !props.hide;
+    
+            props.onItemChecked(_name, _status, _hidden);
         }
 
-        this.setState({
-            items: itemsCopy
-        })
-    }
+        let hideItem = ""
+        hideItem += props.hide ? "shoppingListItemHidden" : "shoppingListItemShow";
 
-    render() {
-        return ( 
-            <div>
-                <span>{this.state.count}</span>
-                <FontAwesomeIcon icon="plus" onClick={this.handleIncrement}/>
-                <FontAwesomeIcon icon="minus" onClick={this.handleDecrement}/>
-                {/* <button className="btn btn-success" onClick={this.handleIncrement}>+</button> */}
-                {/* <button className="btn btn-danger" onClick={this.handleDecrement}>-</button> */}
-                <label>{this.state.name}</label>
+        return (
+            <div className={hideItem}>
+                <input className="shoppingListItemInput"
+                    type="checkbox"
+                    name="{props.name}"
+                    value={props.status}
+                    onChange={handleChange}>
+                </input>
+                {
+                    props.status ?
+                        <label className="shoppingListItemLabel" style={{textDecoration: 'line-through'}}>{props.name}</label>
+                    :
+                        <label className="shoppingListItemLabel" style={{textDecoration: 'none'}}>{props.name}</label>
+                }
             </div>
         );
     }
-}
- 
+
 export default ShoppingListItem;
